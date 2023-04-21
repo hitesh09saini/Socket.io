@@ -41,10 +41,7 @@ public class server {
                         System.out.println("client terminated the chat");
                         break;
                     }
-                    if(msg.equals("tictactoc")){
-                       tictactoc t= new tictactoc();
-                       t.tictactocenter();
-                    }
+                  
                     
                     System.out.println("client : "+msg);
 
