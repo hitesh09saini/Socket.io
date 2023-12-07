@@ -20,12 +20,14 @@
     #form {
       display: flex;
       padding: 10px;
+      padding-bottom: 100px;
       background-color: #f1f1f1;
     }
 
     #m {
       flex: 1;
       padding: 5px;
+      font-size: 30px;
     }
 
     button {
@@ -52,7 +54,7 @@
     }
 
     li{
-        font-size: 20px;
+       border-radius: 10px;
         padding: 5px;
         box-shadow: inset 0px 0px 5px 0px;
         background: #ffffff;
@@ -60,18 +62,19 @@
         margin: 5px;
     }
 
+
   </style>
 </head>
 <body>
-  <h1 >Message With Me</h1>
+  <h1 >Public chat</h1>
   <ul id="messages">
   </ul>
   <form id="form" action="">
-    <input id="m" autocomplete="off" /><button>Send</button>
+    <input id="m" placeholder="type here" autocomplete="off" /><button>Send</button>
   </form>
 
   <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
-  <script>
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
       const socket = io();
 
@@ -99,6 +102,6 @@
         inputMessage.value = '';
       });
     });
-  </script>
+  </script> -->
 </body>
 </html>
