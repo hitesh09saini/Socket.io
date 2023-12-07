@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Chat with me</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    
+
+    #form {
+      display: flex;
+      padding: 10px;
+      background-color: #f1f1f1;
+    }
+
+    #m {
+      flex: 1;
+      padding: 5px;
+    }
+
+    button {
+      padding: 5px 10px;
+      margin-left: 5px;
+      background: green;
+      color: #ccc;
+      border-radius: 10px;
+    }
+
+    h1{
+        text-align: center;
+        background: #cf6a6a;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 10px;
+      flex: 1;
+      overflow-y: auto;
+      border-bottom: 1px solid #ccc;
+      background: rgb(189, 247, 255);
+    }
+
+    li{
+        font-size: 20px;
+        padding: 5px;
+        box-shadow: inset 0px 0px 5px 0px;
+        background: #ffffff;
+        padding-left: 20px;
+        margin: 5px;
+    }
+
+  </style>
+</head>
+<body>
+  <h1 >Message With Me</h1>
+  <ul id="messages">
+  </ul>
+  <form id="form" action="">
+    <input id="m" autocomplete="off" /><button>Send</button>
+  </form>
+
+  <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const socket = io();
+
+      // Prompt the first user for a username
+      const username1 = prompt('Enter first username:');
+      socket.emit('join', username1);
+
+      // Get DOM elements
+      const messagesList = document.getElementById('messages');
+      const form = document.getElementById('form');
+      const inputMessage = document.getElementById('m');
+
+      // Listen for the 'chat message' event from the server
+      socket.on('chat message', (msg) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = msg;
+        messagesList.appendChild(listItem);
+      });
+
+      // Handle form submission to send messages
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const message = inputMessage.value;
+        socket.emit('chat message', `${username1}: ${message}`);
+        inputMessage.value = '';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# Dependency directory
+pids
+logs
+*.pid
+*.seed
+*.pid.lock
+
+# Optional: Config file
+config.js
+
+# Dependency directory
+pids
+logs
+*.pid
+*.seed
+*.pid.lock
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Docker
+.dockerignore
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+# Temporary files
+*.swp
+
+# VSCode
+.vscode/
+
+# Sublime
+.sublime-project
+.sublime-workspace
+
+# IntelliJ
+.idea/
+
+# npm
+*.npmrc
+
+# User-specific files
+.DS_Store
+Thumbs.db
+
+# Debug logs
+debug.log
+
+# yarn
+yarn-error.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
